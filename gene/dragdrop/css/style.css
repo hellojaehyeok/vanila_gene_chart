@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+table{
+    width: 500px;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+tr{
+    cursor: grab;
+    background-color: #fff;
+    border-bottom: 1px solid #000;
+    height: 50px;
+}
+td{
+    text-align: center;
+}
+.placeholder{
+    background-color: #7fc5ff;
+    border: 1px solid #7fc5ff;
+}

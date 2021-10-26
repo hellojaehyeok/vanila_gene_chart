@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" class="addMabcFile" onchange="readExcel()">
+    <div class="commonBtn" onclick="onClickInit()">초기화</div>
+    <div class="commonBtn" onclick="downloadTableImg()">테이블(표) 캡쳐 -> 좌측</div>
+    <div class="commonBtn" onclick="downloadGraphImg()">그래프 캡쳐 -> 우측</div>
+
+    <select class="chrSelectBox" onchange="onChangeChrSort()">
+        <option disabled selected>정렬선택</option>
+    </select>
+    <div class="commonBtn allChrBtn" onclick="onClickAllChr(true)">All chromosome</div>
+
+
+
+    <!-- 그래프랑 표가있는 구간입니다 -->
+    <div class="visualWrapPosition">
+        <div class="visualWrap">
+
+            <div class="tableWrap" >
+                <div class="tableContent">
+                    <table id="table" class="table">
+                    </table>
+                </div>
+            </div>
+
+            <div class="graphContainer">
+                <div class="graphWrap">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모달입니다! -->
+    <div class="modal">
+        <div class="modalBg" onclick="closeMOdal()"></div>
+
+
+        <div class="modalContent">
+            <select class="mabcModalSelect" onchange="onChangeModalSelect()">
+                <option disabled selected>개체선택</option>
+            </select>
+
+            <button class="modalZoomBtn" onclick="downloadModalImg()">캡쳐</button>
+
+            <div class="modalGraph_Container">
+                <button class="modalZoomBtn" onclick="onClickZoom(true)">확대</button>
+                <button class="modalZoomBtn" onclick="onClickZoom(false)">축소</button>
+                <div class="modalGraph_Wrap">
+                    <div class="modalGraph_scale"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="./js/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

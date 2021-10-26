@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.grap_container{
+    width: 800px;
+    height: 440px;
+    border: 2px solid blue;
+    margin-top: 50px;
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-top: 50px;
+}
+.grap_wrap{
+    border: 2px solid salmon;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.dot_line{
+    position: absolute;
+    border-bottom: 1px dotted #000;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+.dot_line:first-child div div{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.dot_line:last-child div div{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
+.stick_els{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.stick_el{
+    float: left;
+    margin: 0 10px;
+    min-width: 30px;
+    height: 100%;
+    /* background-color:salmon; */
+    border:1px solid salmon;
+    /* border-radius: 15px; */
+    position: relative;
+}
+.stick_el:first-child{
+    margin-left: 30px;
+}
+.stick_el span{
+    position: absolute;
+    top: -20px;
+    width: 200px;
+    transform-origin: 0;
+    transform: rotate(-45deg);
+}
