@@ -547,6 +547,7 @@ function onClickInit(){
 
 
 
+
 // ------------------------------------------------------
 //                         모달
 // ------------------------------------------------------
@@ -697,8 +698,14 @@ function onClickZoom(isZoomIn){
     var modalGraph_scale = document.querySelector(".modalGraph_scale");
     var style = window.getComputedStyle(modalGraph_scale);
     var matrix = new WebKitCSSMatrix(style.transform);
-    modalGraph_scale.style.transform = "scale(" + (matrix.m11 + (isZoomIn?0.3:-0.3)) + ")"
+    if(!isZoomIn && matrix.m11==0.4){return;}
+    if(isZoomIn && matrix.m11==2.5){return;}
+    var changeValue = matrix.m11 + (isZoomIn?0.3:-0.3)
+    modalGraph_scale.style.transform = "scale(" + changeValue + ")"
+    var modalSlider = document.querySelector(".modalSlider");
+    modalSlider.value = Number(modalSlider.value) + (isZoomIn?1:-1)
 }
+
 
 
 
@@ -773,3 +780,35 @@ function onClickAllChr(isClick){
     chartDataArr = newChartDataArr;
     buildGraph();
 }
+
+
+
+
+// ------------------------------------------------------
+//                         모달 슬라이드
+// ------------------------------------------------------
+function onChangeModalSlider(e){
+    var modalGraph_scale = document.querySelector(".modalGraph_scale");
+    var changeValue = 1;
+    if(e.value == 1){
+        changeValue = 0.4;
+    }else if (e.value == 2){
+        changeValue = 0.7;
+    }else if (e.value == 3){
+        changeValue = 1;
+    }else if (e.value == 4){
+        changeValue = 1.3;
+    }else if (e.value == 5){
+        changeValue = 1.6;
+    }else if (e.value == 6){
+        changeValue = 1.9;
+    }else if (e.value == 7){
+        changeValue = 2.2;
+    }else if (e.value == 8){
+        changeValue = 2.5;
+    }else{
+        changeValue = 1;
+    }
+    modalGraph_scale.style.transform = "scale(" + changeValue + ")"
+}
+
