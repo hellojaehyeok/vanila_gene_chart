@@ -277,6 +277,13 @@ function addGraphEvent(){
 
     graphWrap.addEventListener("dblclick", function(e){
         if(e.path[0].classList.contains("chrStackSmall")){
+            var modalSelectOption = document.querySelectorAll(".modalSelectOption");
+            if(modalSelectOption){
+                for(var i = 0 ; i < modalSelectOption.length ; i++){
+                    modalSelectOption[i].remove();
+                }
+            }
+
             var modal = document.querySelector(".modal");
             modal.style.display = "unset";
             drawModalGraph(e.path[2].dataset.column);
@@ -668,6 +675,10 @@ function drawModalGraph(_graphName){
     for(var key in chartDataArr){
         var selectOption = document.createElement('option');
         selectOption.innerText = key;
+        selectOption.classList.add("modalSelectOption");
+        if(_graphName == key){
+            selectOption.setAttribute("selected", true);
+        }
         mabcModalSelect.appendChild(selectOption);
     }
 
