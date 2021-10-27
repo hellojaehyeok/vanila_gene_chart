@@ -3,3 +3,43 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+
+
+.graphContainer{
+    width: 700px;
+    height: 600px;
+    position: relative;
+}
+.graphWrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    display: flex;
+    overflow: scroll;
+    overflow-y: hidden;
+    border: 1px solid salmon;
+}
+.graphName{
+    user-select:none;
+    text-align: center;
+    pointer-events: none;
+}
+.graphEl{
+    overflow: hidden;
+    min-width: 36px;
+    max-width: 36px;
+    height: 100%;
+    margin: 0 8px;
+    transform-origin: 0;
+    border: 1px solid #E3E3E3;
+    position: relative;
+}
+.graphStack{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #BFBFBF;
+}
